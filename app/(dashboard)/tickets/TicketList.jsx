@@ -1,24 +1,25 @@
-import Link from "next/link"
-import { cookies } from "next/headers"
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
+import Link from 'next/link'
+import { cookies } from 'next/headers'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 
 async function getTickets() {
   const supabase = createServerComponentClient({ cookies })
-  const { data: tickets, error } = await supabase.from("tickets").select()
- 
+
+  const { data, error } = await supabase.from('tickets')
+    .select()
+
   if (error) {
     console.log(error.message)
   }
-  return tickets
+
+  return data
 }
 
 export default async function TicketList() {
-
   const tickets = await getTickets()
 
   return (
     <>
-      {console.log(tickets)}
       {tickets.map((ticket) => (
         <div key={ticket.id} className="card my-5">
           <Link href={`/tickets/${ticket.id}`}>

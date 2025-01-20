@@ -1,6 +1,6 @@
 import { Suspense } from "react"
 import TicketList from "./TicketList"
-import Load from "../load"
+import Loading from "../loading"
 import Link from "next/link"
 
 export const metadata = {
@@ -19,7 +19,7 @@ export default function Tickets() {
           <button className="btn-primary">New Ticket</button>
         </Link>
       </nav>
-      <Suspense fallback={<Load />}>
+      <Suspense fallback={<Loading />}>
         <TicketList />
       </Suspense>
     </main>

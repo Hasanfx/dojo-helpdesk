@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 
 // components
-import DeleteButton from './DeleteButton'
+import DeleteIcon from './DeleteIcon'
 
 export const dynamicParams = true
 
@@ -46,9 +46,8 @@ export default async function TicketDetails({ params }) {
       <nav>
         <h2>Ticket Details</h2>
         <div className="ml-auto">
-          {console.log(data.session.user.email, ticket.user_email)}
           {data.session.user.email === ticket.user_email && (
-            <DeleteButton id={ticket.id} />
+            <DeleteIcon id={ticket.id} />
           )}
         </div>
       </nav>

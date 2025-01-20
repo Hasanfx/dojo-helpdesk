@@ -1,9 +1,5 @@
-import { notFound } from "next/navigation";
+import { notFound } from "next/navigation"
 
-import React from 'react'
-
-export default function NotFound() {
-  return (
-    notFound()
-  )
+export default function NotFoundCatchAll() {
+  notFound()
 }

@@ -69,7 +69,10 @@ form {
     min-w-fit w-1/4;
 }
 form label {
-  @apply block text-white;
+  @apply block text-gray-400;
+}
+form input {
+  @apply text-black
 }
 form input,
 form textarea,
